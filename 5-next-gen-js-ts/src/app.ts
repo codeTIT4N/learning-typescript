@@ -42,3 +42,41 @@ if (button) {
 }
 
 // printOutput(add2(5, 1))
+
+const hobbies = ['Sports', 'Cooking'];
+const activeHobbies = ['Hiking'];
+
+activeHobbies.push(...hobbies)
+
+const person = {
+    name: 'Lohit',
+    age: 21
+};
+
+// const copiedPerson = person; -- does not create a real copy of person object
+
+const copiedPerson = { ...person } //creates a copy of person
+
+// add function with as many values as we want
+const addNums = (...nums: number[]) => {
+    let result = 0;
+    return nums.reduce((curResult, curValue) => {
+        return curResult + curValue
+    }, 0)
+}
+
+const addedNumbers = addNums(5, 10, 2, 6.3)
+console.log(addedNumbers);
+
+// array destructuring
+const greetings = ['namaste', 'hi', 'hello'];
+const [greeting1, greeting2, ...remainingGreetings] = greetings;
+console.log(greeting1, greeting2, remainingGreetings);
+
+// object destructuring
+const newObj = {
+    key1: 'val1',
+    key2: 'val2'
+}
+const { key2, key1: firstKey } = newObj;
+console.log(firstKey, key2);
