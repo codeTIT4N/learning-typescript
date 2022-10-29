@@ -67,4 +67,4 @@ class AccountingDepartment extends Department {
 }
 const accounting = AccountingDepartment.getInstance();
 console.log(accounting);
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=classes.js.map
