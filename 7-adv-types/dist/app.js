@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 const e1 = {
     name: 'Lokesh',
     privileges: ['create-server'],
@@ -59,3 +60,17 @@ moveAnimal({ type: 'bird', flyingSpeed: 12 });
 const paragraph = document.querySelector('message-output');
 const userInputElement = document.getElementById('user-input');
 userInputElement.value = 'hi';
+const errrorBag = {
+    1: 'Not a valid email',
+    username: 'Must start with a capital character!'
+};
+const fetchedData = {
+    id: 'u1',
+    name: 'lokesh',
+    job: { title: 'CEO', description: 'My own company' }
+};
+console.log((_a = fetchedData === null || fetchedData === void 0 ? void 0 : fetchedData.job) === null || _a === void 0 ? void 0 : _a.title);
+const userInput = '';
+const storedData = userInput !== null && userInput !== void 0 ? userInput : 'DEFAULT';
+console.log(storedData);
+//# sourceMappingURL=app.js.map

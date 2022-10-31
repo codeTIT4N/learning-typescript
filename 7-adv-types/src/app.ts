@@ -23,7 +23,9 @@ type Combinable = string | number;
 type Numeric = number | boolean;
 
 type Universal = Combinable & Numeric;
-
+// function overloads
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
 function add(a: Combinable, b: Combinable) {
     if (typeof a === 'string' || typeof b === 'string') { //this is a type guard
         return a.toString() + b.toString()
@@ -112,3 +114,27 @@ userInputElement.value = 'hi';
 interface ErrorContainer { //{ email: 'Not a valid email'. username; 'Must start with a character!'}
     [prop: string]: string;
 }
+
+const errrorBag: ErrorContainer = {
+    1: 'Not a valid email',
+    username: 'Must start with a capital character!'
+}
+
+// optional chaining
+// imagine this data coming from a server
+const fetchedData = {
+    id: 'u1',
+    name: 'lokesh',
+    job: { title: 'CEO', description: 'My own company' }
+}
+
+console.log(fetchedData?.job?.title);
+
+// nullish coalescing
+// imagine this data coming from a server or dom
+// const userInput = null;
+const userInput = '';
+
+const storedData = userInput ?? 'DEFAULT' //fallback value
+
+console.log(storedData);
