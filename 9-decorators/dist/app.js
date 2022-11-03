@@ -170,6 +170,8 @@ courseForm.addEventListener('submit', event => {
     if (!validate(createdCourse)) {
         alert('Invalid input! Please try again!');
     }
-    console.log(createdCourse);
+    else {
+        console.log(createdCourse);
+    }
 });
 //# sourceMappingURL=app.js.map

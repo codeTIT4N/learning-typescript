@@ -191,6 +191,7 @@ courseForm.addEventListener('submit', event => {
     const createdCourse = new Course(title, price);
     if (!validate(createdCourse)) {
         alert('Invalid input! Please try again!')
+    } else {
+        console.log(createdCourse);
     }
-    console.log(createdCourse);
 })
