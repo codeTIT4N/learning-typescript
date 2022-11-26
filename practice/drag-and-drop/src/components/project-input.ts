@@ -1,10 +1,10 @@
-import { Component } from "./base-component.js";
-import { Validatable, validate } from "../util/validation.js";
-import { Autobind } from "../decorators/autobind.js";
+import Cmp from "./base-component.js";
+import * as validation from "../util/validation.js";
+import { Autobind as autobind } from "../decorators/autobind.js";
 import { projectState } from "../state/project-state.js";
 
 // ProjectInput Class
-export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement>{
+export class ProjectInput extends Cmp<HTMLDivElement, HTMLFormElement>{
 
     // templateElement: HTMLTemplateElement;
     // hostElement: HTMLDivElement;
@@ -38,25 +38,25 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement>{
         const enteredDescription = this.descriptionInputElement.value;
         const enteredPeople = this.peopleInputElement.value;
 
-        const titleValidatable: Validatable = {
+        const titleValidatable: validation.Validatable = {
             value: enteredTitle,
             required: true
         }
-        const descriptionValidatable: Validatable = {
+        const descriptionValidatable: validation.Validatable = {
             value: enteredDescription,
             required: true,
             minLength: 5
         }
-        const peopleValidatable: Validatable = {
+        const peopleValidatable: validation.Validatable = {
             value: +enteredPeople,
             required: true,
             min: 1,
             max: 5
         }
         if (
-            !validate(titleValidatable) ||
-            !validate(descriptionValidatable) ||
-            !validate(peopleValidatable)
+            !validation.validate(titleValidatable) ||
+            !validation.validate(descriptionValidatable) ||
+            !validation.validate(peopleValidatable)
         ) {
             alert('Invalid Input, Please try again!!!')
             return;
@@ -71,7 +71,7 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement>{
         this.peopleInputElement.value = '';
     }
 
-    @Autobind
+    @autobind
     private submitHandler(event: Event) {
         event.preventDefault(); //to prevent an http request to be sent - default submit behavior
         const userInput = this.gatherUserInput();
