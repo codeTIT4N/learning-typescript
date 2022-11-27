@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "lite-server"
+    "start": "webpack serve --config webpack.config.js",
+    "build": "webpack"
   },
   "dependencies": {
     "lite-server": "^2.6.1"
